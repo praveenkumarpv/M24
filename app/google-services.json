@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "992434458737",
+    "project_id": "mechanic24-e4cec",
+    "storage_bucket": "mechanic24-e4cec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992434458737:android:894b030070fd2b1c76cbd0",
+        "android_client_info": {
+          "package_name": "com.M24.m24"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992434458737-2ghnfcv6umbgscps3qbt4jufdsebu5lf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEDdytU70WpDLduf_5BvZxeZN5x5BBQXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992434458737-2ghnfcv6umbgscps3qbt4jufdsebu5lf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
