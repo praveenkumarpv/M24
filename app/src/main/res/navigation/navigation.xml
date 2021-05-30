@@ -15,20 +15,12 @@
         <action
             android:id="@+id/action_homeFragment_to_emergencyviewFragment"
             app:destination="@id/emergencyviewFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/listingFragment"
         android:name="com.M24.m24.ListingFragment"
         android:label="fragment_listing"
         tools:layout="@layout/fragment_listing" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.M24.m24.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/emergencyviewFragment"
         android:name="com.M24.m24.EmergencyviewFragment"

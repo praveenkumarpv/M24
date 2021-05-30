@@ -76,8 +76,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
         db = FirebaseFirestore.getInstance();
-        Emergency = view.findViewById(R.id.emergency);
-        Otherservices = view.findViewById(R.id.otherservices);
+
 //        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 //        getSupportActionBar().setCustomView(R.layout.actionbar);
         Query query = db.collection("Emergencyservices");

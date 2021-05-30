@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Form = findViewById(R.id.loginform);
         blur = findViewById(R.id.blurbackground);
         //Animation bgfade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.backgroundfading);
-        //loginActivity.startAnimation(bgfade);
+       // loginActivity.startAnimation(bgfade);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -93,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
 
         Address =findViewById(R.id.address);
         Submit =findViewById(R.id.submit);
-
         Register.setTypeface(null, Typeface.BOLD);
         Login.setTypeface(null, Typeface.NORMAL);
+        
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
                 Login.setTypeface(null, Typeface.NORMAL);
                 Conformpassword.setVisibility(View.VISIBLE);
                 Phonenumber.setVisibility(View.VISIBLE);
-
                 Forgetpassword.setVisibility(View.GONE);
                 Logreg.setText("Register");
             }

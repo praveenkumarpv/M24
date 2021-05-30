@@ -14,9 +14,12 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        View view = getSupportActionBar().getCustomView();
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setDisplayShowCustomEnabled(true);
+//        getSupportActionBar().setElevation(0);
+//        getSupportActionBar().setCustomView(R.layout.actionbar);
+//        View view = getSupportActionBar().getCustomView();
+
+       // TextView name = view.findViewById(R.id.name);
     }
 }
