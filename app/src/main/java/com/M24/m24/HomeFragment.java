@@ -4,21 +4,31 @@ import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.Objects;
 
 import Modalclass.EmergencyServices;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,8 +37,17 @@ import Modalclass.EmergencyServices;
  */
 public class HomeFragment extends Fragment {
     private RecyclerView Emergency,Otherservices;
+    private LinearLayout profbox,notfibox,histbox;
+    private CircleImageView profilephoto;
+    private ImageView notification,history;
+    private EditText namep,placep,distp,pinp,phonep,emailp;
+    private Button subp;
+    private Animation zoomin,zoomout;
     private FirebaseFirestore db;
     private FirestoreRecyclerAdapter adapters;
+    private NestedScrollView mainscroll;
+    private ConstraintLayout home;
+    private AppBarLayout mainappbar;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,18 +92,67 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
-        db = FirebaseFirestore.getInstance();
+        zoomin = AnimationUtils.loadAnimation(getContext(),R.anim.zoomin);
+        zoomout = AnimationUtils.loadAnimation(getContext(),R.anim.zoomout);
+        mainappbar = view.findViewById(R.id.mainappbar);
+        mainappbar.addOnOffsetChangedListener(new AppBarLayout.BaseOnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (verticalOffset!=0){
+                    profbox.setVisibility(View.GONE);
+                    notfibox.setVisibility(View.GONE);
+                    histbox.setVisibility(View.GONE);
+                }
+            }
+        });
 
-//        Objects.requireNonNull(getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        getSupportActionBar().setCustomView(R.layout.actionbar);
-        Query query = db.collection("Emergencyservices");
-        FirestoreRecyclerOptions<EmergencyServices> emergencyServicesFirestoreRecyclerOptions = new FirestoreRecyclerOptions.
-                Builder<EmergencyServices>().setQuery(query,EmergencyServices.class).build();
-        //adapters = new FirestoreRecyclerAdapter<EmergencyServices, emergencyitemholder>();
+
+        profbox = view.findViewById(R.id.profilebox);
+        notfibox = view.findViewById(R.id.notificationbox);
+        histbox = view.findViewById(R.id.historybox);
+        profilephoto = view.findViewById(R.id.profileimage);
+        notification = view.findViewById(R.id.notificationicon);
+        history = view.findViewById(R.id.historyimage);
+       // home = view.findViewById(R.id.homefrag);
+
+        mainscroll = view.findViewById(R.id.mainrecycler);
 
 
+
+
+        profilephoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profbox.setVisibility(View.VISIBLE);
+                notfibox.setVisibility(View.GONE);
+                histbox.setVisibility(View.GONE);
+            }
+        });
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profbox.setVisibility(View.GONE);
+                notfibox.setVisibility(View.VISIBLE);
+                histbox.setVisibility(View.GONE);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profbox.setVisibility(View.GONE);
+                notfibox.setVisibility(View.GONE);
+                histbox.setVisibility(View.VISIBLE);
+            }
+        });
+        mainscroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profbox.setVisibility(View.GONE);
+                notfibox.setVisibility(View.GONE);
+                histbox.setVisibility(View.GONE);
+            }
+        });
         return view;
     }
 }
